@@ -12,28 +12,34 @@ public class HCF_LCMofTwo {
         int a = in.nextInt();
         System.out.println("Enter Second Number - ");
         int b = in.nextInt();
-        System.out.println("HCF - "+hcf(a,b)+" LCM - "+lcm(a,b,hcf(a,b) ));
+        System.out.println("HCF - " + gcd(a, b) + " LCM - " + lcm(a, b, gcd(a, b)));
     }
     //Euclidean Algorithm where num<den --> a<b
 
-    static int hcf(int a,int b){
+    static int hcf(int a, int b) {
 
-        if(a>b){
+        if (a > b) {
             int c = a;
-            a=b;
-            b=c;
+            a = b;
+            b = c;
         } // This if statement is only if 0 comes in numbers.
         int rem;
-        while( a%b != 0){
-            rem = a%b;
-            a=b;
-            b=rem;
+        while (a % b != 0) {
+            rem = a % b;
+            a = b;
+            b = rem;
         }
         return b;
     }
 
-    static int lcm(int a,int b,int hcf){
-        return (a*b)/hcf;
+    static int lcm(int a, int b, int hcf) {
+        return (a * b) / hcf;
+    }
+    // SECOND APPROACH - By recurrsion Method It will be seen in reccursive part- EUCLIDEAN METHOD
+
+    static int gcd(int a, int b) {
+        if (a == 0) return b;
+        return gcd(b%a, a);
     }
 }
-  // SECOND APPROACH - By recurrsion Method It will be seen in reccursive part
+  
